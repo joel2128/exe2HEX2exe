@@ -28,8 +28,8 @@ function Convert-HexToExe {
 }
 
 # Specify the paths for HEX to EXE conversion
-$hexFilePath = 'C:\AMD\RAMMap.txt'
-$outputExeFile = 'C:\AMD\RAMMap.exe'
+$hexFilePath = "$env:APPDATA\AMD\RAMMap.txt"
+$outputExeFile = "$env:APPDATA\AMD\RAMMap.exe"
 
 # Call the function to perform the conversion and run the EXE
 Convert-HexToExe -hexFilePath $hexFilePath -outputExeFile $outputExeFile
